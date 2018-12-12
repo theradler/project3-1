@@ -62,13 +62,7 @@ public class BookController {
         return "books/show";
     }
 
-    /*First, Spring MVC will try to bind the submitted data to the book domain object and perform the 
-     * type conversion and formatting automatically. If binding errors are found (for example, 
-     * the birth date was entered in the wrong format), the errors will be saved into the 
-     * BindingResult interface, and an error message will be saved into the Model, redisplaying the 
-     * edit view. If the binding is successful, the data will be saved, and the logical view name 
-     * will be returned for the display book view by using redirect: as the prefix. 
-     */
+
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
     public String update(@Valid Book book, BindingResult bindingResult, Model uiModel,
                          HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
@@ -81,11 +75,6 @@ public class BookController {
             return "books/update";
         }
         uiModel.asMap().clear();
-        //Note that we want to display the message after the redirect, so we need to use the 
-        //RedirectAttributes.addFlashAttribute() method for displaying the success message 
-        //in the show book view. 
-        //The Message class is a custom class that stores the message retrieved from MessageSource 
-        //and the type of message (that is, success or error) for the view to display in the message area   
         redirectAttributes.addFlashAttribute("message", new Message("success",
                 messageSource.getMessage("book_save_success", new Object[]{}, locale)));
         bookService.save(book);
@@ -116,28 +105,11 @@ public class BookController {
                 messageSource.getMessage("book_save_success", new Object[]{}, locale)));
 
         logger.info("book id: " + book.getId());
-
-        // Process upload file
-        if (file != null) {
-            logger.info("File name: " + file.getName());
-            logger.info("File size: " + file.getSize());
-            logger.info("File content type: " + file.getContentType());
-            byte[] fileContent = null;
-            try {
-                InputStream inputStream = file.getInputStream();
-                if (inputStream == null) logger.info("File inputstream is null");
-                fileContent = IOUtils.toByteArray(inputStream);
-                //book.setPhoto(fileContent);
-            } catch (IOException ex) {
-                logger.error("Error saving uploaded file");
-            }
-            //book.setPhoto(fileContent);
-        }
-
         bookService.save(book);
         return "redirect:/books/";
     }
 
+    
 
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(Model uiModel) {

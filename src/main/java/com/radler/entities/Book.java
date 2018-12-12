@@ -26,7 +26,7 @@ private Long id;
 private String categoryName;
 
 @NotBlank(message="{validation.isbn.NotBlank.message}")
-@Size(min=10, max=10, message="{validation.isbn.Size.message}")
+@Size(min=1, max=20, message="{validation.isbn.Size.message}")
 @Column(name = "ISBN")
 private String isbn;
 

@@ -25,7 +25,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
 
-    <spring:message code="label_book_new" var="labeBookNew"/>
+    <spring:message code="label_book_new" var="labelBookNew"/>
     <spring:message code="label_book_update" var="labelBookUpdate"/>
 	<spring:message code="label_book_categoryName" var="labelBookCategoryName"/>
     <spring:message code="label_book_isbn" var="labelBookIsbn"/>

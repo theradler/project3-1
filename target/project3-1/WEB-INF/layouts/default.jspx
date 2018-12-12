@@ -79,7 +79,7 @@
     </table>
 </div>
 <div id="wrapper">
-    <tiles:insertAttribute name="menu" ignore="true"/>
+    <tiles:insertAttribute name="menu" ignore="false"/>
     <div id="main">
         <tiles:insertAttribute name="body"/>
         <tiles:insertAttribute name="footer" ignore="true"/>

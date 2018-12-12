@@ -11,7 +11,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
 
-    <spring:message code="date_format_pattern" var="dateFormatPattern"/>
 	<spring:message code="label_book_list" var="labelBookList"/>
     <spring:message code="label_book_categoryName" var="labelBookCategoryName"/>
     <spring:message code="label_book_isbn" var="labelBookIsbn"/>
