@@ -1,0 +1,10 @@
+com\radler\services\BookService.class
+com\radler\entities\Book.class
+com\radler\util\DateFormatter.class
+com\radler\services\BookServiceImp.class
+com\radler\util\BookGrid.class
+com\radler\repos\BookRepository.class
+com\radler\init\WebInitializer.class
+com\radler\util\Message.class
+com\radler\util\UrlUtil.class
+com\radler\web\BookController.class

@@ -1,0 +1,226 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.radler</groupId>
+  <artifactId>project3-1</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>project3-1</name>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>5.0.2.RELEASE</spring.version>
+    <jpa.version>1.0.2.Final</jpa.version> 
+    <spring.data.jpa.version>2.0.2.RELEASE</spring.data.jpa.version>    
+    <google.guava.version>21.0</google.guava.version>
+    <slf4j.log4j.version>1.7.6</slf4j.log4j.version>
+    <jstl.version>1.2</jstl.version>
+    <tiles.version>3.0.7</tiles.version>
+    <hibernate.entitymanager.version>5.2.12.Final</hibernate.entitymanager.version>
+    <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
+     <commons.io.version>2.5</commons.io.version> 
+    <commons.dbcp2.version>2.2.0</commons.dbcp2.version>
+	<maven.war.plugin.version>3.0.0</maven.war.plugin.version>
+	<tomcat7.maven.plugin.version>2.2</tomcat7.maven.plugin.version>
+  </properties>
+  
+  <dependencies>
+        <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>${google.guava.version}</version>
+      </dependency>
+	  <dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-context</artifactId>
+		<version>${spring.version}</version>
+	  </dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-context-support</artifactId>
+  		<version>${spring.version}</version>
+  		<exclusions>
+  		  <exclusion>  
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-context</artifactId>
+  		  </exclusion>
+                  <exclusion>  
+                  	<groupId>org.springframework</groupId>
+                  	<artifactId>spring-beans</artifactId>
+                  </exclusion>
+                  <exclusion>  
+                  	<groupId>org.springframework</groupId>
+                  	<artifactId>spring-core</artifactId>
+                  </exclusion>
+                </exclusions>
+        </dependency>
+        
+        <dependency>    
+        	<groupId>org.springframework.security</groupId>
+        	<artifactId>spring-security-taglibs</artifactId>
+        	<version>5.0.1.RELEASE</version>
+        	<exclusions>
+        	  <exclusion>  
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-web</artifactId>
+  		  </exclusion>
+  		  <exclusion>  
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-context</artifactId>
+  		  </exclusion>
+                  <exclusion>  
+                  	<groupId>org.springframework</groupId>
+                  	<artifactId>spring-beans</artifactId>
+                  </exclusion>
+                  <exclusion>  
+                  	<groupId>org.springframework</groupId>
+                  	<artifactId>spring-core</artifactId>
+                  </exclusion>
+                </exclusions>	
+        </dependency>
+      
+        <dependency>
+        	<groupId>org.springframework.security</groupId>
+        	<artifactId>spring-security-config</artifactId>
+        	<version>5.0.1.RELEASE</version>
+        	<exclusions>
+  		  <exclusion>  
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-context</artifactId>
+  		  </exclusion>
+                  <exclusion>  
+                  	<groupId>org.springframework</groupId>
+                  	<artifactId>spring-beans</artifactId>
+                  </exclusion>
+                  <exclusion>  
+                  	<groupId>org.springframework</groupId>
+                  	<artifactId>spring-core</artifactId>
+                  </exclusion>
+                </exclusions>   	
+        </dependency>
+        
+        <dependency>
+    		<groupId>org.springframework.security</groupId>
+   			<artifactId>spring-security-crypto</artifactId>
+    		<version>4.1.1.RELEASE</version>
+		</dependency>
+		
+        <dependency>
+        	<groupId>org.apache.tiles</groupId>
+        	<artifactId>tiles-jsp</artifactId>
+        	<version>${tiles.version}</version>
+        </dependency>
+        
+        <dependency>
+        	<groupId>org.codehaus.castor</groupId>
+        	<artifactId>castor-xml</artifactId>
+        	<version>1.4.1</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+         
+      <dependency>
+      	<groupId>com.fasterxml.jackson.core</groupId>
+      	<artifactId>jackson-databind</artifactId>
+      	<version>2.9.0</version>
+      </dependency>
+      
+      <dependency> 
+          <groupId>org.hibernate.javax.persistence</groupId>
+          <artifactId>hibernate-jpa-2.1-api</artifactId>
+          <version>${jpa.version}</version>
+      </dependency> 
+      
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-jpa</artifactId>
+          <version>${spring.data.jpa.version}</version>
+      </dependency>
+      
+       <dependency>
+       		<groupId>org.apache.commons</groupId>
+      		<artifactId>commons-dbcp2</artifactId>
+      		<version>${commons.dbcp2.version}</version>
+      </dependency>
+      <dependency>
+             <groupId>mysql</groupId>
+             <artifactId>mysql-connector-java</artifactId>
+             <version>8.0.11</version>
+      </dependency>
+      
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>${hibernate.entitymanager.version}</version>
+          <exclusions>
+            <exclusion>  
+              <groupId>org.hibernate.javax.persistence</groupId>
+              <artifactId>org.hibernate.javax.persistence</artifactId>
+            </exclusion>
+            <exclusion>  
+              <groupId>org.hibernate.javax.persistence</groupId>
+              <artifactId>hibernate-jpa-2.1-api</artifactId>
+            </exclusion>
+          </exclusions>
+      </dependency>
+      
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>${slf4j.log4j.version}</version>
+      </dependency>
+      
+      <dependency>
+          <groupId>jstl</groupId>
+          <artifactId>jstl</artifactId>
+          <version>${jstl.version}</version>
+      </dependency>
+      
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator</artifactId>
+          <version>${hibernate.validator.version}</version>
+          <exclusions>
+            <exclusion>  
+              <groupId>org.hibernate.javax.persistence</groupId>
+              <artifactId>hibernate-jpa-2.0-api</artifactId>
+            </exclusion>
+          </exclusions>
+      </dependency> 
+     
+      <dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>${commons.io.version}</version>
+	</dependency>
+	
+	 <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+	 </dependency>
+	 
+  </dependencies>
+  <build>
+      <finalName>project3-1</finalName>
+      <plugins>
+	      <plugin>
+              <groupId>org.apache.tomcat.maven</groupId>
+              <artifactId>tomcat7-maven-plugin</artifactId>
+              <version>${tomcat7.maven.plugin.version}</version>
+          </plugin>
+		  <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>${maven.war.plugin.version}</version>
+            <configuration>
+                <outputDirectory>C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps</outputDirectory>
+            </configuration>
+        </plugin>
+      </plugins>
+  </build>
+</project>
