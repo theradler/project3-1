@@ -16,6 +16,8 @@
     <spring:message code="label_book_title" var="labelBookTitle"/>
     <spring:message code="label_book_publisher" var="labelBookPublisher"/>
     <spring:message code="label_book_price" var="labelBookPrice"/>
+    <spring:message code="label_save" var="labelSave"/>
+    <spring:message code="label_reset" var="labelReset"/>
 
     <!--  Use the Spring Expression Language to test whether the book ID is null -->
     <spring:eval expression="book.id == null ? labelBookNew:labelBookUpdate"
@@ -78,10 +80,10 @@
     
 
             <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                <span class="ui-button-text">Save</span>
+                <span class="ui-button-text">${labelSave}</span>
             </button>
             <button type="reset" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                <span class="ui-button-text">Reset</span>
+                <span class="ui-button-text">${labelReset}</span>
             </button>
         </form:form>
     </div>
