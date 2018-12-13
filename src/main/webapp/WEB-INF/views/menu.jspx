@@ -8,7 +8,7 @@
 
     <spring:message code="menu_header_text" var="menuHeaderText"/>
     <spring:message code="menu_add_book" var="menuAddBook"/>
-    <spring:url value="/books/create" var="addBookUrl"/>
+    <spring:url value="/books?form" var="addBookUrl"/>
 
     <spring:message code="label_login" var="labelLogin"/>
     <spring:url var="loginUrl" value="/login" /> 

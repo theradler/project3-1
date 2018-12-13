@@ -1,15 +1,13 @@
 package com.radler.web;
 
-import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 import javax.validation.Valid;
 
-import org.apache.commons.io.IOUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,23 +86,42 @@ public class BookController {
         return "books/update";
     }
 
-	//BindingResult used as an object to lookfor validation errors.
+
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid Book book, BindingResult bindingResult, Model uiModel, 
-		HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes, 
-		Locale locale, @RequestParam(value="file", required=false) Part file) {
+    public String create(
+    		@Valid Book book, 
+    		BindingResult bindingResult, 
+    		Model uiModel, 
+    		HttpServletRequest httpServletRequest, 
+    		RedirectAttributes redirectAttributes, 
+    		Locale locale
+    		)
+	{
         logger.info("Creating book");
         if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("message", new Message("error",
-                    messageSource.getMessage("book_save_fail", new Object[]{}, locale)));
+            uiModel.addAttribute(
+            		"message", new Message(
+            				"error",
+            				messageSource.getMessage(
+            						"book_save_fail", 
+            						new Object[]{}, 
+            						locale)));
             uiModel.addAttribute("book", book);
             return "books/create";
         }
+        
         uiModel.asMap().clear();
-        redirectAttributes.addFlashAttribute("message", new Message("success",
-                messageSource.getMessage("book_save_success", new Object[]{}, locale)));
+        redirectAttributes.addFlashAttribute(
+        		"message", 
+        		new Message(
+        				"success",
+        				messageSource.getMessage(
+        						"book_save_success", 
+        						new Object[]{}, 
+        						locale)));
 
-        logger.info("book id: " + book.getId());
+        logger.info("Book id: " + book.getId());       
+
         bookService.save(book);
         return "redirect:/books/";
     }
@@ -113,12 +130,11 @@ public class BookController {
 
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(Model uiModel) {
-        Book book = new Book();
+    	Book book = new Book();
         uiModel.addAttribute("book", book);
 
         return "books/create";
     }
-
     @ResponseBody
     @RequestMapping(value = "/listgrid", method = RequestMethod.GET, produces="application/json")
     public BookGrid listGrid(@RequestParam(value = "page", required = false) Integer page,
