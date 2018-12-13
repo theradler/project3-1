@@ -8,9 +8,13 @@
     <spring:message code="label_en_US" var="labelEnUs"/>
     <spring:message code="label_zh_HK" var="labelZhHk"/>
     <spring:message code="label_japan" var="labeljapan"/>
+    <spring:message code="label_theme_standard" var="themeStandard"/>
+    <spring:message code="label_theme_alternate" var="themeAlternate"/>
     <spring:url value="/books" var="homeUrl"/>
 
     <a href="${homeUrl}">${homeText}</a> |
     <a href="${homeUrl}?lang=en_US">${labelEnUs}</a> |
-    <a href="${homeUrl}?lang=japan">${labeljapan}</a> 
+    <a href="${homeUrl}?lang=japan">${labeljapan}</a> |
+    <a href="${homeUrl}?theme=alt">${themeAlternate}</a> |
+    <a href="${homeUrl}?theme=standard">${themeStandard}</a>
 </div>
